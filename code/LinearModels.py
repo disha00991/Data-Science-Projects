@@ -17,8 +17,8 @@ def question_9(X_trn, y_trn, X_tst):
 
         fold_scores_log = []
         fold_scores_hinge = []
-        clf_log = LogisticRegression(random_state=1, penalty='l2', C=1/(2*lam), solver='sag', max_iter=1000)
-        clf_hinge = LinearSVC(random_state=1, penalty='l2', C=1/(2*lam), max_item=1000)
+        clf_log = LogisticRegression(random_state=1, penalty='l2', C=1/(2*lam), solver='sag')
+        clf_hinge = LinearSVC(random_state=1, penalty='l2', C=1/(2*lam))
         for train_index, test_index in kf.split(X_trn):
             Xk_train, Xk_test = X_trn[train_index], X_trn[test_index]
             yk_train, yk_test = y_trn[train_index], y_trn[test_index]
@@ -35,41 +35,40 @@ def question_9(X_trn, y_trn, X_tst):
         hinge_loss = 1 - np.mean(np.array(fold_scores_hinge))
         print(f"{lam}  |  {logistic_loss}  |  {hinge_loss}")
 
-    ##finding losses
-    # find_classification_errors(predictors, X_trn, y_trn)
-    # find_logistic_losses(predictors, X_trn, y_trn)
-    # find_hinge_losses(predictors, X_trn, y_trn)
+    #finding losses
+    find_classification_errors(predictors, X_trn, y_trn)
+    find_logistic_losses(predictors, X_trn, y_trn)
+    find_hinge_losses(predictors, X_trn, y_trn)
 
 def find_classification_errors(predictors, X_trn, y_trn):
     print("Table 1:")
     print("Lambda  |            Classification Error      ")
 
     for lam in lam_errors:
-        for predictor in predictors:
+        for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = 1 - accuracy_score(y_trn, y_pred)
-            print(f"   {lam}{"Log" if i%2==0 else "Hinge"}     |        {loss}      ")
-    
+            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
     print("----------------------------------------------------")
 
 def find_logistic_losses(predictors, X_trn, y_trn):
     print("Table 2:")
     print("Lambda  |            Logistic Loss       ")
     for lam in lam_errors:
-        for predictor in predictors:
+        for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = log_loss(y_trn, y_pred)
-            print(f"   {lam}{"Log" if i%2==0 else "Hinge"}     |        {loss}      ")
+            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
     print("----------------------------------------------------")
 
 def find_hinge_losses(predictors, X_trn, y_trn):
     print("Table 3:")
     print("Lambda  |            Hinge Loss       ")
     for lam in lam_errors:
-        for predictor in predictors:
+        for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = hinge_loss(y_trn, y_pred)
-            print(f"   {lam}{"Log" if i%2==0 else "Hinge"}     |        {loss}      ")
+            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
     print("----------------------------------------------------")
 
 def question_10(X_trn, y_trn, X_tst):
