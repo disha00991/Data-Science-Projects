@@ -1,9 +1,11 @@
 import numpy as np
+import autograd.numpy as np_auto
 from matplotlib import pyplot as plt
 
 from TreeClassifier import question_4, question_5
 from LinearModels import question_9, question_10
 from NeuralNetwork import prediction_loss, prediction_grad
+from AutoGrad import prediction_grad_autograd
 
 stuff=np.load("../report_src/data.npz")
 X_trn = stuff["X_trn"]
@@ -52,10 +54,16 @@ def show(x):
 # dLdW, dLdV, dLdb, dLdc = prediction_grad(x,y,W,V,b,c)
 # print(f"dLdW, dLdV, dLdb, dLdc: {dLdW}, {dLdV}, {dLdb}, {dLdc}")
 
-#### Q:14 Write a function to evaluate the same gradient as in Question 12 using the autograd toolbox
-#### Make predictions for the test data
-####best lambda above: , best training loss estimator: 
-# question_14()
+# #### Q:14 Write a function to evaluate the same gradient as in Question 12 using the autograd toolbox
+# x = np_auto.array([1, 2])
+# y=1
+# W=np_auto.array([[0.5,-1], [-0.5, 1], [1, 0.5]])
+# V=np_auto.array([[-1,-1, 1], [1, 1, 1]])
+# b=np_auto.array([0, 0, 0])
+# c=np_auto.array([0, 0])
+# dLdW, dLdV, dLdb, dLdc = prediction_grad_autograd(x,y,W,V,b,c)
+# print(f"dLdW, dLdV, dLdb, dLdc: {dLdW}, {dLdV}, {dLdb}, {dLdc}")
+
 
 
 
