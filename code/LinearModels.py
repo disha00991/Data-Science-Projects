@@ -77,7 +77,8 @@ def question_10(X_trn, y_trn, X_tst):
     print("no of splits: ", kf.get_n_splits(X_trn))
 
     fold_scores = []
-    classifier = lgoggClassifier(random_state=1, penalty='l2', C=1/(2*bessttt)) ##best depth = 6 returned by question 4
+    lam_best = 100
+    classifier = LogisticRegression(random_state=1, penalty='l2', C=1/(2*lam_best), solver='sag')##best depth = 6 returned by question 4
     for train_index, test_index in kf.split(X_trn):
         Xk_train, Xk_test = X_trn[train_index], X_trn[test_index]
         yk_train, yk_test = y_trn[train_index], y_trn[test_index]
@@ -89,7 +90,7 @@ def question_10(X_trn, y_trn, X_tst):
     classifier.fit(X_trn, y_trn)
 
     predictions = get_predictions(classifier, X_tst)
-    write_csv(predictions, 'kfold.csv')
+    write_csv(predictions, 'linearmodel.csv')
 
 def get_predictions(predictor, xtest):
     return np.argmax(np.array(predictor.decision_function(xtest)), axis=1)
