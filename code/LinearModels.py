@@ -1,4 +1,5 @@
 import numpy as np
+import sklearn
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.metrics import log_loss, hinge_loss, accuracy_score
@@ -42,32 +43,46 @@ def question_9(X_trn, y_trn, X_tst):
 def find_classification_errors(predictors, X_trn, y_trn):
     print("Table 1:")
     print("Lambda  |            Classification Error      ")
-    lam_errors
-    for lam in lamda_array:
-        for i, predictor in enumerate(predictors):
-            y_pred = get_predictions(predictor, X_trn)
-            loss = 1 - accuracy_score(y_trn, y_pred)
-            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
+
+    for i, lam in enumerate(lamda_array):
+        y_pred = get_predictions(predictors[2*i], X_trn)
+        loss = 1 - accuracy_score(y_trn, y_pred)
+        print(f"   {lam}","Log",f"     |        {loss}      ")
+        y_pred = get_predictions(predictors[2*i+1], X_trn)
+        loss = 1 - accuracy_score(y_trn, y_pred)
+        print(f"   {lam}","Hinge",f"     |        {loss}      ")
     print("----------------------------------------------------")
+
+def softmax(X):
+  theta = 2.0
+  ps = np.empty(X.shape)
+  for i in range(X.shape[0]):
+      ps[i,:]  = np.exp(X[i,:] * theta)
+      ps[i,:] /= np.sum(ps[i,:])
+  return ps
 
 def find_logistic_losses(predictors, X_trn, y_trn):
     print("Table 2:")
     print("Lambda  |            Logistic Loss       ")
-    for lam in lamda_array:
-        for i, predictor in enumerate(predictors):
-            y_pred = get_predictions(predictor, X_trn)
-            loss = log_loss(y_trn, y_pred)
-            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
+    for i, lam in enumerate(lamda_array):
+        y_pred = softmax(predictors[2*i].decision_function(X_trn)) 
+        loss = log_loss(y_trn, y_pred)
+        print(f"   {lam}","Log",f"     |        {loss}      ")
+        y_pred = predictors[2*i].decision_function(X_trn)
+        loss = log_loss(y_trn, y_pred)
+        print(f"   {lam}","Hinge",f"     |        {loss}      ")
     print("----------------------------------------------------")
 
 def find_hinge_losses(predictors, X_trn, y_trn):
     print("Table 3:")
     print("Lambda  |            Hinge Loss       ")
-    for lam in lamda_array:
-        for i, predictor in enumerate(predictors):
-            y_pred = get_predictions(predictor, X_trn)
-            loss = hinge_loss(y_trn, y_pred)
-            print(f"   {lam}","Log" if i%2==0 else "Hinge","     |        {loss}      ")
+    for i, lam in enumerate(lamda_array):
+        y_pred = predictors[2*i].decision_function(X_trn)
+        loss = sklearn.metrics.hinge_loss(y_trn, y_pred, labels=np.array([0,1,2,3]))        
+        print(f"   {lam}","Log",f"     |        {loss}      ")
+        y_pred = predictors[2*i].decision_function(X_trn)
+        loss = sklearn.metrics.hinge_loss(y_trn, y_pred, labels=np.array([0,1,2,3]))
+        print(f"   {lam}","Hinge",f"     |        {loss}      ")
     print("----------------------------------------------------")
 
 def question_10(X_trn, y_trn, X_tst):

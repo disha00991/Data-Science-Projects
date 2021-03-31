@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from TreeClassifier import question_4, question_5
 from LinearModels import question_9, question_10
 from NeuralNetwork import prediction_loss, prediction_grad
-from AutoGrad import prediction_grad_autograd
+from AutoGrad import prediction_grad_autograd, question_17
 
 stuff=np.load("../report_src/data.npz")
 X_trn = stuff["X_trn"]
@@ -66,6 +66,7 @@ def show(x):
 # b=np_auto.array([0, 0, 0], dtype="float")
 # c=np_auto.array([0, 0], dtype="float")
 # dLdW, dLdV, dLdb, dLdc = prediction_grad_autograd(x,y,W,V,b,c)
+# print("i used autograd:")
 # print(f"dLdW, dLdV, dLdb, dLdc: {dLdW}, {dLdV}, {dLdb}, {dLdc}")
 
 ##### Q:15 Update your gradient function to work on a full dataset and include regularization, as in the previous question
@@ -74,5 +75,5 @@ def show(x):
 ##### Q:16 Update your gradient function to work on a full dataset and include regularization, as in the previous question. 
 ###prediction_grad_full(X,Y,W,V,b,c,lam)
 
-
-
+##### Q:17 Optimize a function h(w) by gradient descent with momentum.
+question_17(X_trn, y_trn)
