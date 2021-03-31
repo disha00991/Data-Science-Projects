@@ -28,6 +28,10 @@ def show(x):
 ####best depth above is 6
 # question_5(X_trn, y_trn, X_tst)
 
+####Q:6
+####Q:7
+####Q:8
+
 ###Q:9 For both hinge loss and logistic loss, train linear models with ridge regularization
 ###train the model and estimate the mean out of sample loss/error using 5-fold cross-validation
 ###l = {.0001,.001,1,10,100}
@@ -36,7 +40,7 @@ def show(x):
 ### Q:10 Choose the training loss and \lambda that you think will perform best
 ### Make predictions for the test data
 ###best lambda above: , best training loss estimator: 
-question_10(X_trn, y_trn, X_tst)
+# question_10(X_trn, y_trn, X_tst)
 
 #### Q:11 Write a function to evaluate the neural network and loss
 ###prediction_loss(x,y,W,V,b,c) function in NeuralNetwork.py
