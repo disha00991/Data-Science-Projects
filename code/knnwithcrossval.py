@@ -59,7 +59,7 @@ def write_csv(y_pred, filename):
         for idx, y in enumerate(y_pred):
             csv_writer.writerow([idx, y]) 
 
-question_8(X_trn, y_trn, X_tst)     
+question_7(X_trn, y_trn, X_tst)     
 
 
     

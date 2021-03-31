@@ -4,7 +4,6 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import log_loss, hinge_loss, accuracy_score
 import csv
 from sklearn.model_selection import KFold
-from sklearn.tree import DecisionTreeClassifier
 
 lamda_array = [0.0001, 0.01, 1, 10, 100]
 def question_9(X_trn, y_trn, X_tst):
@@ -43,8 +42,8 @@ def question_9(X_trn, y_trn, X_tst):
 def find_classification_errors(predictors, X_trn, y_trn):
     print("Table 1:")
     print("Lambda  |            Classification Error      ")
-
-    for lam in lam_errors:
+    lam_errors
+    for lam in lamda_array:
         for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = 1 - accuracy_score(y_trn, y_pred)
@@ -54,7 +53,7 @@ def find_classification_errors(predictors, X_trn, y_trn):
 def find_logistic_losses(predictors, X_trn, y_trn):
     print("Table 2:")
     print("Lambda  |            Logistic Loss       ")
-    for lam in lam_errors:
+    for lam in lamda_array:
         for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = log_loss(y_trn, y_pred)
@@ -64,7 +63,7 @@ def find_logistic_losses(predictors, X_trn, y_trn):
 def find_hinge_losses(predictors, X_trn, y_trn):
     print("Table 3:")
     print("Lambda  |            Hinge Loss       ")
-    for lam in lam_errors:
+    for lam in lamda_array:
         for i, predictor in enumerate(predictors):
             y_pred = get_predictions(predictor, X_trn)
             loss = hinge_loss(y_trn, y_pred)
