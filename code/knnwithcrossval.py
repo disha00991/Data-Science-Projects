@@ -4,11 +4,6 @@ from sklearn.metrics import accuracy_score
 import numpy as np
 import csv
 
-stuff=np.load("../report_src/data.npz")
-X_trn = stuff["X_trn"]
-y_trn = stuff["y_trn"]
-X_tst = stuff["X_tst"]
-
 def question_7(X_trn, y_trn, X_tst):
     val = [1,3,5,7,9,11]
 
@@ -59,7 +54,7 @@ def write_csv(y_pred, filename):
         for idx, y in enumerate(y_pred):
             csv_writer.writerow([idx, y]) 
 
-question_7(X_trn, y_trn, X_tst)     
+    
 
 
     

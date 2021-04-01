@@ -11,7 +11,7 @@ def sigma(x):
     return np.tanh(x)
 
 def f_x(x, y, W, V, b, c):
-    return c + np.matmul(sigma(b + np.matmul(x, np.transpose(W))), np.transpose(V))
+    return c + np.matmul(V, sigma(b + np.matmul(W, x)))
 
 def L_y_f(x, y, W, V, b, c):
     g = f_x(x,y,W,V,b,c)

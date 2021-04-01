@@ -6,6 +6,7 @@ from TreeClassifier import question_4, question_5
 from LinearModels import question_9, question_10
 from NeuralNetwork import prediction_loss, prediction_grad
 from AutoGrad import prediction_grad_autograd, question_17, question_18
+from knnwithcrossval import question_7, question_8
 
 stuff=np.load("../report_src/data.npz")
 X_trn = stuff["X_trn"]
@@ -21,9 +22,13 @@ X_tst = stuff["X_tst"]
 ####best depth above is 6
 # question_5(X_trn, y_trn, X_tst)
 
-####Q:6
-####Q:7
-####Q:8
+####Q:7 Do nearest-neighbor prediction for each of the following possible values of K: {1, 3, 5, 7, 9, 11}. 
+### Using 5-fold cross-validation, estimate the out of sample classification error, and report this as a table.
+### refer knnwithcrossval.py
+# question_7(X_trn, y_trn, X_tst) 
+
+####Q:8 What K performs best in the previous question? Using that K, make predictions on the test data
+# question_8(X_trn, y_trn, X_tst)
 
 ###Q:9 For both hinge loss and logistic loss, train linear models with ridge regularization
 ###train the model and estimate the mean out of sample loss/error using 5-fold cross-validation
@@ -42,12 +47,12 @@ X_tst = stuff["X_tst"]
 ###prediction_grad(x,y,W,V,b,c) function in NeuralNetwork.py
 
 # #### Q:13 Compute gradient wrt W,v,b,c using q:12
-# x = np.array([[1, 2]], dtype="float")
+# x = np.array([1, 2], dtype="float")
 # y=1
 # W=np.array([[0.5,-1], [-0.5, 1], [1, 0.5]], dtype="float")
 # V=np.array([[-1,-1, 1], [1, 1, 1]], dtype="float")
-# b=np.array([[0, 0, 0]], dtype="float")
-# c=np.array([[0, 0]], dtype="float")
+# b=np.array([0, 0, 0], dtype="float")
+# c=np.array([0, 0], dtype="float")
 # dLdW, dLdV, dLdb, dLdc = prediction_grad(x,y,W,V,b,c)
 # print(f"dLdW, dLdV, dLdb, dLdc: {dLdW}, {dLdV}, {dLdb}, {dLdc}")
 
@@ -72,5 +77,5 @@ X_tst = stuff["X_tst"]
 # question_17(np_auto.array(X_trn), y_trn)
 
 ##### Q:18 Train NN using train validation split of 50-50
-question_18(np_auto.array(X_trn), y_trn)
+# question_18(np_auto.array(X_trn), y_trn)
 

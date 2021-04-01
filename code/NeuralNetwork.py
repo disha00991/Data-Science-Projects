@@ -14,7 +14,7 @@ def prediction_loss(x,y,W,V,b,c):
     return L_y
 
 def prediction_grad(x,y,W,V,b,c):
-    f_x = c + np.matmul(sigma(b + np.matmul(x, np.transpose(W))), np.transpose(V))
+    f_x = c + np.matmul(V, sigma(b + np.matmul(W, x)))
 
     #first find dLdf = e_cap + exp(f_y)/summation(exp(f_i))
     dLdf = -1*unit_v(y, c) + np.exp(f_x)/np.sum(np.exp(f_x))
@@ -22,22 +22,23 @@ def prediction_grad(x,y,W,V,b,c):
     #sigma(b+Wx)
     print("x", x.shape)
     print("w", W.shape)
-    comp1 = sigma(b + np.matmul(x, np.transpose(W)))
+    comp1 = sigma(b + np.matmul(W, x))
     #sigma V_t * dLdf
     comp2 = np.matmul(dLdf, V)
     #dLdW = comp1 * comp2 X x_t
-    dLdW = np.outer(comp1 * comp2, np.transpose(x))
     print("dldf", dLdf.shape)
     print("comp1", comp1.shape)
-    dLdV = np.matmul(dLdf.T, comp1)
+    dLdV = np.outer(dLdf, comp1)
     # dLdV = 0
-    dLdb = comp1 * comp2
+    ## derivative of tanh = 1 - tanh^2
+    dLdb = (1-comp1**2) * comp2
     dLdc = dLdf
+    dLdW = np.outer(dLdb, x)
 
     return dLdW, dLdV, dLdb, dLdc
 
 #returns unit vector
 def unit_v(y, c):  
-    unit_vector = np.zeros(len(c[0]))
+    unit_vector = np.zeros(len(c))
     unit_vector[y] = 1
     return  unit_vector
