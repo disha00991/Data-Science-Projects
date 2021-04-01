@@ -5,19 +5,12 @@ from matplotlib import pyplot as plt
 from TreeClassifier import question_4, question_5
 from LinearModels import question_9, question_10
 from NeuralNetwork import prediction_loss, prediction_grad
-from AutoGrad import prediction_grad_autograd, question_17
+from AutoGrad import prediction_grad_autograd, question_17, question_18
 
 stuff=np.load("../report_src/data.npz")
 X_trn = stuff["X_trn"]
 y_trn = stuff["y_trn"]
 X_tst = stuff["X_tst"]
-
-def show(x):
-    img = x.reshape((3,32,32)).transpose(1,2,0)
-    plt.imshow(img)
-    plt.axis('off')
-    plt.draw()
-    plt.pause(10)
 
 ####Q:4 Train 6 different classification trees on the image data, with each of the following maximum depths
 ####{1,3,6,9,12,14}
@@ -76,4 +69,8 @@ def show(x):
 ###prediction_grad_full(X,Y,W,V,b,c,lam)
 
 ##### Q:17 Optimize a function h(w) by gradient descent with momentum.
-question_17(X_trn, y_trn)
+# question_17(np_auto.array(X_trn), y_trn)
+
+##### Q:18 Train NN using train validation split of 50-50
+question_18(np_auto.array(X_trn), y_trn)
+
