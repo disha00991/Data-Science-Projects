@@ -63,14 +63,15 @@ def question_18(X_trn, y_trn):
           errors.append(1 - accuracy_score(y_val,y_pred))
 
       chosenM = M_array[np.argmin(errors)]
+      #Although accuracy is high for M=70, we chose M=40 for final training as M=70 overfits data
+      chosenM = 40
       print(f"Chosen M: {chosenM}")
       print(f"Estimated Generalization Error: {np.mean(errors)}")
-      print(f"   {M}   |    {error[i]}")
       break  #run the code only for first split
 
     #retrain on all data
     W,V,b,c,loss = train_neural_network(X_trn,y_trn,chosenM)
-    y_pred = np.argmax(f_x(X_val,y_val,W,V,b,c), axis=1)    
+    y_pred = np.argmax(f_x(X_tst,y_val,W,V,b,c), axis=1)
     write_csv(y_pred, 'neuralnetwork.csv')
 
 def plot_loss(loss):    
