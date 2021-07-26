@@ -1,4 +1,4 @@
-![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![library](https://img.shields.io/badge/Library-sklearn-orange.svg)
+![Python](https://img.shields.io/badge/Python-3.7.9-brightgreen) ![sklearn](https://img.shields.io/badge/sklearn-library-yellowgreen.svg) ![Pandas](https://img.shields.io/badge/pandas-library-green.svg) ![Seaborn](https://img.shields.io/badge/seaborn-library-orange.svg) ![tableau](https://img.shields.io/badge/Tableau-software-lightgrey)
 
 ## Project Overview
 • Created a machine learning model that **estimates salary of data scientist from features like revenue, job title, number of competitors, etc.**<br/>
@@ -7,11 +7,11 @@
 • This project can be **used by people in  data science and related fields to know their market rate and hence be prepared to negotiate their salary with their employers**
 
 ## Resources Used
-• Packages: **pandas, numpy, sklearn, matplotlib, seaborn, pickle, Tableau, Tableau prep builder**<br/>
-• Dataset by **Ken Jee**: https://github.com/PlayingNumbers/ds_salary_proj
-• Visualization Techniques by **Josh**: https://www.kaggle.com/joshuaswords/data-visualization-clustering-mall-data
-• Graph ideas by **Python Graph Gallery**: https://www.python-graph-gallery.com/
-• Web app design idea by **Anuj Vyas**: https://github.com/anujvyas/Diabetes-Prediction-Deployment
+* Packages: **pandas, numpy, sklearn, matplotlib, seaborn, pickle, Tableau, Tableau prep builder**<br/>
+* Dataset by **Ken Jee**: https://github.com/PlayingNumbers/ds_salary_proj
+* Visualization Techniques by **Josh**: https://www.kaggle.com/joshuaswords/data-visualization-clustering-mall-data
+* Graph ideas by **Python Graph Gallery**: https://www.python-graph-gallery.com/
+* Web app design idea by **Anuj Vyas**: https://github.com/anujvyas/Diabetes-Prediction-Deployment
 
 ## Exploratory Data Analysis (EDA) and Data Cleaning
 • **Removed unwanted columns using Tableau prep builder**: 'Unnamed: 0'<br/>
@@ -63,5 +63,5 @@ Created Flask app that:
 * loads model and data prep objects from pickle files
 * takes input features as input from user via WebApp deployed at https://predict-ctc.herokuapp.com/
 * predicts salary!
-
-![user-input](readme-resources/user-input.png) ![predict]((readme-resources/predict.png))
+<img src="readme-resources/user-input.png" alt="drawing" width="500"/>
+<img src="readme-resources/predict.png" alt="drawing" width="500"/>
