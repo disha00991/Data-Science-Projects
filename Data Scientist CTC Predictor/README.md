@@ -15,11 +15,13 @@
 
 ## Exploratory Data Analysis (EDA) and Data Cleaning
 • **Removed unwanted columns using Tableau prep builder**: 'Unnamed: 0'<br/>
-![unwanted](readme-resources/remove_unwanted_cols.png)
+<img src="readme-resources/remove_unwanted_cols.png" alt="drawing" width="600"/><br/>
+
 • **Plotted bargraphs and countplots** for gathering insight into features<br/>
 • **Removed unwanted alphabet/special characters from Salary feature**<br/>
-• **Numerical Features** (Rating, Founded): **Replaced NaN or -1 values with mean or meadian based on their distribution**<br/
-![missing](readme-resources/replace_missing.png)
+• **Numerical Features** (Rating, Founded): **Replaced NaN or -1 values with mean or meadian based on their distribution**<br/>
+<img src="readme-resources/replace_missing.png" alt="drawing" width="600"/><br/>
+
 • **Categorical Features: Replaced NaN or -1 values with 'Other'/'Unknown' category**<br/>
 • **Make the Salary column show one measure** i.e from (per hour, per annum, employer provided salary) to (per annum)
 
@@ -30,9 +32,9 @@
 ![sample_counts_sector](readme-resources/sample_counts_sector.png)<br/>
 ![top_15_location](readme-resources/top_15_location.png)<br/>
 • Feature Selection using **information gain (mutual_info_regression) and correlation matrix**<br/>
-![size_corr_matrix](readme-resources/size_corr_matrix.png)<br/>
+<img src="readme-resources/size_corr_matrix.png" alt="drawing" width="600"/><br/>
 • Feature Scaling using **StandardScalar** such that final dataset is clean for evaluating on different models
-![final_df](readme-resources/final_df.png)
+<img src="readme-resources/final_df.png" alt="drawing" width="600"/>
 
 ## Model Building and Evaluation
 Root Mean Squared Error (RMSE) is least for **Random Forest: ~17** out of the following tried algorithms (evaluated with cross validation on 10 folds)<br/>
