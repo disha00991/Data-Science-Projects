@@ -1,7 +1,8 @@
 ![Python](https://img.shields.io/badge/Python-3.7.9-brightgreen) ![sklearn](https://img.shields.io/badge/sklearn-library-yellowgreen.svg) ![Pandas](https://img.shields.io/badge/pandas-library-green.svg) ![Seaborn](https://img.shields.io/badge/seaborn-library-orange.svg) ![tableau](https://img.shields.io/badge/Tableau-software-lightgrey)
 
 ## Project Overview
-• Created a machine learning model that **estimates salary of data scientist from features like revenue, job title, number of competitors, etc.**<br/>
+• Created a machine learning model that **estimates salary of data scientist from features like revenue, job title, number of competitors, etc.**
+Checkout this app here: https://predict-ctc.herokuapp.com/
 
 ## How will this project help?
 • This project can be **used by people in  data science and related fields to know their market rate and hence be prepared to negotiate their salary with their employers**
