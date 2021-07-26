@@ -4,7 +4,7 @@ html{
 }
 
 body{
-	font-family: Arial, Helvetica,sans-serif;
+	font-family: 'Pacifico';
     text-align: center;
     margin: 0;
     padding: 0;
@@ -18,36 +18,31 @@ body{
 .container{
     padding: 30px;
 	position: relative;
-	background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
+	background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 	background-size: 500% 500%;
-	animation: change-gradient 10s ease-in-out infinite;
-}
-@keyframes change-gradient {
-	0%{
-		background-position: 0 50%;
-	}
-	50%{
-		background-position: 100% 50%;
-	}
-	100%{
-		background-position: 0 50%;
-	}
 }
 
 .container-heading{
     margin: 0;
 }
 
-.heading_font{
-    color: #ffffff;
-	font-family: 'Pacifico', cursive;
-	font-size: 35px;
+.heading_font {
+    color: black;
+	font-family: 'Pacifico';
+	font-size: 25px;
+	font-weight: normal;
+}
+.heading_font--h3 {
+    color: black;
+	font-family: 'Pacifico';
+	font-size: 30px;
 	font-weight: normal;
 }
 
 .description p{
-	color: #ffffff;
-    font-style: italic;
+	color: black;
+	font: menu;
+	font-style: italic;
     font-size: 14px;
     margin: -5px 0 0;
 }
@@ -75,7 +70,7 @@ body{
     padding: 10px 36px;
     color: #000000;
     display: inline-block;
-   	font: italic bold 20px/1 "Calibri", sans-serif;
+   	font: 20px/1 "Calibri", sans-serif;
     text-align: center;
 }
 
@@ -90,7 +85,7 @@ body{
 
 /* Contact */
 .contact-icon{
-	color: #ffffff;
+	color: black;
 	padding: 7px;
 }
 
@@ -103,13 +98,12 @@ body{
 	flex-shrink: 0;
 	position: relative;
 	padding: 20px;
-	background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
+	background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 	background-size: 500% 500%;
-	animation: change-gradient 10s ease-in-out infinite;
 }
 
 .footer-description{
-	color: #ffffff;
+	color: black;
 	margin: 0;
 	font-size: 12px;
 }

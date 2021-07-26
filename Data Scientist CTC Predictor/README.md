@@ -11,6 +11,7 @@
 • Dataset by **Ken Jee**: https://github.com/PlayingNumbers/ds_salary_proj
 • Visualization Techniques by **Josh**: https://www.kaggle.com/joshuaswords/data-visualization-clustering-mall-data
 • Graph ideas by **Python Graph Gallery**: https://www.python-graph-gallery.com/
+• Web app design idea by **Anuj Vyas**: https://github.com/anujvyas/Diabetes-Prediction-Deployment
 
 ## Exploratory Data Analysis (EDA) and Data Cleaning
 • **Removed unwanted columns using Tableau prep builder**: 'Unnamed: 0'<br/>
@@ -54,5 +55,13 @@ Found best estimator from the following parameter grid (corresponding to the par
 ## Best Estimator:
 ![best_estimator](readme-resources/best_estimator.png)
 
-## Saving the model
-Used pickle to save the model for deployment to Heroku
+## Saving the model and data prep objects
+Used pickle to save the model and scaler transform objects for use during prediction from webapp.
+
+## Deployment of Flask API to Heroku ![Heroku](https://img.shields.io/badge/Heroku-Deployment-blue.svg)
+Created Flask app that:
+* loads model and data prep objects from pickle files
+* takes input features as input from user via WebApp deployed at https://predict-ctc.herokuapp.com/
+* predicts salary!
+
+![user-input](readme-resources/user-input.png) ![predict]((readme-resources/predict.png))

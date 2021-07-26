@@ -1,16 +1,18 @@
-import flask
 from flask import Flask, render_template, request
 import json
 from model_prediction import predict_salary
 import numpy as np
 from pickle import load
-from icecream import ic
 
+model = load(open('model/data_scientist_salary_prediction_model.pkl', 'rb'))
+rating_scaler = load(open('data prep objects/rating_scaler.pkl', 'rb'))
+company_founded_scaler = load(open('data prep objects/company_founded_scaler.pkl', 'rb'))
+	
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-	return render_template('index.html')
+def index():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -26,12 +28,7 @@ def predict():
         'job_seniority': request.form['job_seniority'],
         'job_skills': request.form['job_skills']
         }
-        model = load(open('model/data_scientist_salary_prediction_model.pkl', 'rb'))
-        rating_scaler = load(open('data prep objects/rating_scaler.pkl', 'rb'))
-        company_founded_scaler = load(open('data prep objects/company_founded_scaler.pkl', 'rb'))
+        global model, rating_scaler, company_founded_scaler
         prediction = predict_salary(model, rating_scaler, company_founded_scaler, features)
         
         return render_template('result.html', prediction=prediction)
-
-if __name__ == '__main__':
-    app.run(debug=True)

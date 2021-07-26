@@ -1,6 +1,4 @@
 import numpy as np
-from pickle import load
-from icecream import ic
 
 ## Eg features: 3.0, 2000, 1, 'Health Care', 'Public', 'data analyst', '0', 'Junior', ['python', 'tableau']
 def predict_salary(model, rating_scaler, company_founded_scaler, features):
@@ -59,4 +57,4 @@ def predict_salary(model, rating_scaler, company_founded_scaler, features):
     prediction_input = prediction_input + temp
 
     salary = model.predict([prediction_input])[0]
-    return {'min': (salary*1000)-9000, 'max': (salary*1000)+9000}
+    return {'min': (int(salary)*1000)-9000, 'max': (int(salary)*1000)+9000}
