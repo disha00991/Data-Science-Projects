@@ -1,18 +1,19 @@
-# Color Palette Creation - Deployment
+# Color Palette Creation
 ![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![scikit-learn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg)
 
 • This repository consists of files required to deploy a ___Machine Learning Web App___ created with ___Flask___ deployed on ___Heroku___ platform.
 
 • If you want to view the deployed model, click on the following link:<br />
-Deployed at: "----"
+Deployed at: "---"
 
 • If you are searching for frontend of this project, you won't find it here. Click the link mentioned below for the same, which takes you to my personal website where the react frontend is deployed:<br />
 Link: "-----"
 
 • Please do ⭐ the repository, if you liked the idea!
 
-• A glimpse of the web app: --
-
+• A glimpse of the web app: -
+- git url : https://git.heroku.com/color-palette-creation.git
+- app @ https://color-palette-creation.herokuapp.com/
 ------
 
 Inspiration:
