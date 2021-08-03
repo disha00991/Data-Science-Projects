@@ -26,7 +26,7 @@ def predict():
         'job_title': request.form['job_title'],
         'job_in_headquarters': 1 if request.form['job_in_headquarters'] == 'yes' else 0,
         'job_seniority': request.form['job_seniority'],
-        'job_skills': request.form['job_skills']
+        'job_skills': dict(request.form.lists())['job_skills']
         }
         global model, rating_scaler, company_founded_scaler
         prediction = predict_salary(model, rating_scaler, company_founded_scaler, features)

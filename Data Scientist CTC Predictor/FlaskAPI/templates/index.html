@@ -1,72 +1,77 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Data Scientist CTC Predictor</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='salary-favicon.ico') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    </head>
 
-    <body>
-    	<div class="container">
-            <h2 class='container-heading'><span class="heading_font">Data Scientist CTC Predictor</span></h2>
-            <div class='description'>
-    			<p>A Machine Learning Web App that estimates salary of data scientist from features like revenue, job title, number of competitors, etc. Built with Flask, Deployed using Heroku.</p>
-    		</div>
-    	</div>
-        <!-- 3.0, 2000, 1, 'Health Care', 'Public', 'data analyst', 0, 'jr', ['python', 'tableau'] -->
-        <!-- rating, founded, competitors, sector, ownership, job_title, job_in_headquarters, job_seniority, job_skills -->
-        <!-- Text Area -->
-    	<div class="ml-container">
-    		<form action="{{ url_for('predict') }}" method="POST">
-                <input class="form-input" type="number" step="0.1" min="-1" max="5" name="rating" placeholder="Glassdoor Rating[-1 to 5] eg. 3.4"><br>
-                <input class="form-input" type="number" name="founded" placeholder="Year Founded eg. 1970"><br>
-                <input class="form-input" type="number" name="competitors" placeholder="No. of Competitors eg. 2"><br>
-                <select class="form-input" name="sector" placeholder="Industry sector">
-                    <option key="Biotech & Pharmaceuticals">Biotech & Pharmaceuticals</option>
-                    <option key="Health Care">Health Care</option>
-                    <option key="Business Services">Business Services</option>
-                    <option key="Information Technology">Information Technology</option>
-                </select><br>
-                <select class="form-input" name="ownership" placeholder="Ownership">
-                    <option key="Public">Public</option>
-                    <option key="Private">Private</option>
-                </select><br>
-                <select class="form-input" name="job_title" placeholder="job_title">
-                    <option key="data scientist">data scientist</option>
-                    <option key="data analyst">data analyst</option>
-                </select><br>
-                <select class="form-input" name="job_in_headquarters" placeholder="Is job in headquarters?">
-                    <option key="yes">Yes</option>
-                    <option key="no">No</option>
-                </select><br>
-                <select class="form-input" name="job_seniority" placeholder="Job Seniority">
-                    <option key="Junior">Junior</option>
-                    <option key="Senior">Senior</option>
-                    <option key="Other">Other</option>
-                </select><br>
-                <select class="form-input" name="job_skills" size="4" multiple placeholder="Job Skills">
-                    <option key="excel">Excel</option>
-                    <option key="python">Python</option>
-                    <option key="tableau">Tableau</option>
-                    <option key="sql">Sql</option>
-                </select><br>
+<head>
+    <meta charset="utf-8">
+    <title>Data Scientist CTC Predictor</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='salary-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
 
-        		<input type="submit" class="my-cta-button" value="Predict">
-        	</form>
-    	</div>
+<body>
+    <div class="container">
+        <h2 class='container-heading'><span class="heading_font">Data Scientist CTC Predictor</span></h2>
+        <div class='description'>
+            <p>A Machine Learning Web App that estimates salary of data scientist from features like revenue, job title,
+                number of competitors, etc. Built with Flask, Deployed using Heroku.</p>
+        </div>
+    </div>
+    <!-- 3.0, 2000, 1, 'Health Care', 'Public', 'data analyst', 0, 'jr', ['python', 'tableau'] -->
+    <!-- rating, founded, competitors, sector, ownership, job_title, job_in_headquarters, job_seniority, job_skills -->
+    <!-- Text Area -->
+    <div class="ml-container">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input class="form-input" type="number" step="0.1" min="-1" max="5" name="rating"
+                placeholder="Glassdoor Rating[-1 to 5] eg. 3.4"><br>
+            <input class="form-input" type="number" name="founded" placeholder="Year Founded eg. 1970"><br>
+            <input class="form-input" type="number" name="competitors" placeholder="No. of Competitors eg. 2"><br>
+            <select class="form-input" name="sector" placeholder="Industry sector">
+                <option key="Biotech & Pharmaceuticals">Biotech & Pharmaceuticals</option>
+                <option key="Health Care">Health Care</option>
+                <option key="Business Services">Business Services</option>
+                <option key="Information Technology">Information Technology</option>
+            </select><br>
+            <select class="form-input" name="ownership" placeholder="Ownership">
+                <option key="Public">Public</option>
+                <option key="Private">Private</option>
+            </select><br>
+            <select class="form-input" name="job_title" placeholder="job_title">
+                <option key="data scientist">data scientist</option>
+                <option key="data analyst">data analyst</option>
+            </select><br>
+            <select class="form-input" name="job_in_headquarters" placeholder="Is job in headquarters?">
+                <option key="yes">Yes</option>
+                <option key="no">No</option>
+            </select><br>
+            <select class="form-input" name="job_seniority" placeholder="Job Seniority">
+                <option key="Junior">Junior</option>
+                <option key="Senior">Senior</option>
+                <option key="Other">Other</option>
+            </select><br>
+            <select class="form-input multiselect" name="job_skills" size="4" multiple placeholder="Job Skills">
+                <option key="excel">Excel</option>
+                <option key="python">Python</option>
+                <option key="tableau">Tableau</option>
+                <option key="sql">Sql</option>
+            </select>
+            <br>
 
-        <!-- Footer -->
-       <div class='footer'>
-           <div class="contact">
-               <a target="_blank" href=""><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/cslovedisha"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-           </div>
-           <p class='footer-description'>Made with ❤️ by Disha Singh.</p>
-       </div>
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
 
-    </body>
+    <!-- Footer -->
+    <div class='footer'>
+        <div class="contact">
+            <a target="_blank" href="https://bit.ly/ctc-predictor"><i class="fab fa-github fa-lg contact-icon"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/cslovedisha"><i
+                    class="fab fa-linkedin fa-lg contact-icon"></i></a>
+        </div>
+        <p class='footer-description'>Made with ❤️ by Disha Singh.</p>
+    </div>
+</body>
+
 </html>

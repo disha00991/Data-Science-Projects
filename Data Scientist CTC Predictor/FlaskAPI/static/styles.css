@@ -14,6 +14,9 @@ body{
 	flex-direction: column;
 }
 
+.form-input.multiselect {
+	height: unset;
+}
 /* Website Title */
 .container{
     padding: 30px;
