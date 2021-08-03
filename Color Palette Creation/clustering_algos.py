@@ -4,8 +4,6 @@ from sklearn.cluster import Birch, KMeans, AgglomerativeClustering
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import silhouette_score
 
-from icecream import ic
-
 class Clustering_algos():
 
     def __init__(self, img, algo, n_colors) -> None:
@@ -19,15 +17,13 @@ class Clustering_algos():
         self.points = data.reshape(data.shape[0]*data.shape[1], 3)/255.0 
 
     def get_palette_plot(self):
-        ic(self.points.shape)
         self.algo = self.algo.lower()
         labels = ''
-        ic(self.algo)
         if (self.algo == 'kmeans'):
             labels = self.kmeans()
-        elif (self.algo == 'kmeans_plus'):
+        elif (self.algo == 'kmeans++'):
             labels = self.kmeans_plus()
-        elif (self.algo == 'hac'):
+        elif (self.algo == 'heirarchical'):
             labels = self.agglomerative()
         elif (self.algo == 'birch'):
             labels = self.birch()
@@ -39,15 +35,15 @@ class Clustering_algos():
         color_arr = []
         for i in range(self.n_colors):
             color_arr.append(list(np.round((self.points * (labels == i).reshape(-1,1)).sum(axis=0) / sum((labels ==i))*256)))
-        return str(color_arr)
+        return color_arr
 
     def kmeans(self):
         kmeans_model = KMeans(n_clusters=self.n_colors, n_init=10)
-        param_grid = {
-            'algorithm': ['full', 'elkan']
-            }
-        predictors = GridSearchCV(estimator=kmeans_model, param_grid=param_grid, scoring=silhouette_score, cv=None, refit=True)
-        best_kmeans_model = predictors.fit(self.points, y=None)
+        # param_grid = {
+        #     'algorithm': ['full', 'elkan']
+        #     }
+        # predictors = GridSearchCV(estimator=kmeans_model, param_grid=param_grid, scoring=silhouette_score, cv=None, refit=True)
+        best_kmeans_model = kmeans_model.fit(self.points, y=None)
         return best_kmeans_model.predict(self.points)
 
     def birch(self):

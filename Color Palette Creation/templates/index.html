@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='fonts/icomoon/style.css')}}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css')}}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <title>Color Palette</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('static/images/palet.png'); height: 194px;
+    width: 307px; transform: rotate(-90deg); margin-top: 114px;"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 py-5">
+            <h3>Create a Color Palette</h3>
+            <p class="mb-4">A project based on Clustering methods in Machine Learning</p>
+            <p class='mb-2'>Created by Disha Singh
+              <a target="_blank" href="https://bit.ly/color-clustering"><i
+                  class="fab fa-github fa-lg contact-icon"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/in/cslovedisha"><i
+                  class="fab fa-linkedin fa-lg contact-icon"></i></a>
+            </p>
+            <p class="mb-4"><strong>About Project:</strong> This project shows how unsupervised learning can be used to
+              cluster the different colors in
+              a picture to create a color palette. The palette can be used to create a gradient background for the
+              picture or to select font color
+              for any text to write on or around it!</p>
+            <form action="{{ url_for('color_palette') }}" method="POST">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group first">
+                    <label for="algo">Algorithm to use*</label>
+                    <select class="form-control" name="algo" id="algo">
+                      <option value="kmeans">kmeans</option>
+                      <option value="kmeans_plus">kmeans++</option>
+                      <option value="heirarchical">heirarchical</option>
+                      <option value="birch">birch</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group first">
+                    <label for="lname">No. of colors*:</label>
+                    <input type="number" class="form-control" min="1" name="n_colors" id="n_colors">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group first">
+                    <label for="image url">Image URL*</label><small class=""> For eg:
+                      https://bit.ly/flowers-palette</small>
+
+                    <input type="text" name="url" class="form-control" placeholder="e.g. https://bit.ly/flowers-palette"
+                      id="url">
+                  </div>
+                </div>
+              </div>
+
+              <input type="submit" value="Get Color Palette!" class="btn px-5 btn-primary">
+
+            </form>
+
+            {% if response %}
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+              {% for color in response.palette %}
+              <div class="d-inline-block" style="background-color: {{color}}; width: 40px; height: 40px; border-radius: 50%; margin: 5px;
+                border: 1px solid grey;"></div>
+              {% endfor %}
+            </div>
+            <img src={{response.image_url}} width="400" />
+            {% endif %}
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
+
+</html>
