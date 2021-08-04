@@ -1,29 +1,29 @@
 # Color Palette Creation
-![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![scikit-learn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg)
+![Python](https://img.shields.io/badge/Python-3.7.9-brightgreen) ![sklearn](https://img.shields.io/badge/sklearn-library-yellowgreen.svg) ![Pandas](https://img.shields.io/badge/pandas-library-green.svg) ![Seaborn](https://img.shields.io/badge/seaborn-library-orange.svg)
 
-• This repository consists of files required to deploy a ___Machine Learning Web App___ created with ___Flask___ deployed on ___Heroku___ platform.
+## Project Overview
+• This project uses one of the many Clustering Algorithms, chosen by the user to create clusters of colors present in an image to form a Color Palette of a user defined number of colors, using one of the clustering algorithms too decided by user.
+• A flask app deployed with heroku. Checkout the app here: https://color-clustering.herokuapp.com/
 
-• If you want to view the deployed model, click on the following link:<br />
-Deployed at: "---"
+![demo](https://user-images.githubusercontent.com/13835601/128101864-b9563df1-3cc8-4c91-a83e-fbff89af275c.mp4)
 
-• If you are searching for frontend of this project, you won't find it here. Click the link mentioned below for the same, which takes you to my personal website where the react frontend is deployed:<br />
-Link: "-----"
+## Inspiration:
+- I noticed that while we create Instagram stories, it always picks colors itself for a background behind our video/image. Some of my own stories and their beautiful backgrounds selected by Instagram AI led me to think how this is being done!
+<p float="left">
+<img src="readme_resources/img1.png" width=200/>
+<img src="readme_resources/img2.png" width=200/>
+<img src="readme_resources/img3.png" width=200/>
+</p>
+- My guess is that they perform a quick clustering and sample a few top most colors from the palette thus created.
+- I tried to do the same for any given image url using Machine Learning clustering algorithms.
 
-• Please do ⭐ the repository, if you liked the idea!
+## Clustering Algorithms:
+I used Heirarchical clustering, Kmeans, Kmeans++ and Birch algorithms and noticed they generate similar results. As such even a single algorithm does not produce similar clustering when run twice!
 
-• A glimpse of the web app: -
-- git url : https://git.heroku.com/color-palette-creation.git
-- app @ https://color-palette-creation.herokuapp.com/
-------
+## Next steps:
+This project when deployed to heroku usually times out as the clustering algorithms take very long to output the clusters! But using low resolution images helps!
+Some of the interesting palettes I created on local machine:
 
-Inspiration:
-- Instagram story always picks colors after clustering
-- Add photo of froyo
-
-- References:
-Subin An for palette idea : cant find
-anuj vyas for deployment idea and readme
-https://towardsdatascience.com/python-plotting-api-expose-your-scientific-python-plots-through-a-flask-api-31ec7555c4a8
 
 
 _**----- Important Note -----**_<br />
