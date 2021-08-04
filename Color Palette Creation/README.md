@@ -20,15 +20,16 @@
 ## Clustering Algorithms:
 I used Heirarchical clustering, Kmeans, Kmeans++ and Birch algorithms and noticed they generate similar results. As such even a single algorithm does not produce similar clustering when run twice!
 
-## Next steps:
-This project when deployed to heroku usually times out as the clustering algorithms take very long to output the clusters! But using low resolution images helps!
-Some of the interesting palettes I created on local machine:
+## Some Results:
+This project when deployed to heroku usually times out as the clustering algorithms take very long to output the clusters! But the project runs smooth on local machine. Some of the interesting palettes the I created:
 <p float="left">
 <img src="readme_resources/result1.png" width=300/>
 <img src="readme_resources/result2.png" width=300/>
 <img src="readme_resources/result3.png" width=300/>
 </p>
 
+## Next steps:
+This project when deployed to heroku usually times out as the clustering algorithms take very long to output the clusters! So now, I am trying to reduce this time taken. For now, using low resolution images helps to yield outputs fast on the deployed version!
 
 _**----- Important Note -----**_<br />
 • If you encounter this webapp as shown in the picture given below, it is occuring just because **free dynos for this particular month provided by Heroku have been completely used.** _You can access the webpage on 1st of the next month._<br />
