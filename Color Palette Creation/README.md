@@ -2,8 +2,8 @@
 ![Python](https://img.shields.io/badge/Python-3.7.9-brightgreen) ![sklearn](https://img.shields.io/badge/sklearn-library-yellowgreen.svg) ![Pandas](https://img.shields.io/badge/pandas-library-green.svg) ![Seaborn](https://img.shields.io/badge/seaborn-library-orange.svg)
 
 ## Project Overview
-• This project uses one of the many Clustering Algorithms, chosen by the user to create clusters of colors present in an image to form a Color Palette of a user defined number of colors, using one of the clustering algorithms too decided by user.
-• A flask app deployed with heroku. Checkout the app here: https://color-clustering.herokuapp.com/
+* This project uses one of the many Clustering Algorithms - chosen by the user, to create clusters of colors present in an image and generates a Color Palette consisting of a user defined number of colors.
+* A flask app deployed with heroku. Checkout the app here: https://color-clustering.herokuapp.com/
 
 ![demo](https://user-images.githubusercontent.com/13835601/128101864-b9563df1-3cc8-4c91-a83e-fbff89af275c.mp4)
 
