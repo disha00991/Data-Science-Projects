@@ -23,7 +23,11 @@ I used Heirarchical clustering, Kmeans, Kmeans++ and Birch algorithms and notice
 ## Next steps:
 This project when deployed to heroku usually times out as the clustering algorithms take very long to output the clusters! But using low resolution images helps!
 Some of the interesting palettes I created on local machine:
-
+<p float="left">
+<img src="readme_resources/result1.png" width=300/>
+<img src="readme_resources/result2.png" width=300/>
+<img src="readme_resources/result3.png" width=300/>
+</p>
 
 
 _**----- Important Note -----**_<br />
