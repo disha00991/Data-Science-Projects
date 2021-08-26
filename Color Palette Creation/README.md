@@ -8,14 +8,16 @@
 ![demo](https://user-images.githubusercontent.com/13835601/128101864-b9563df1-3cc8-4c91-a83e-fbff89af275c.mp4)
 
 ## Inspiration:
-- I noticed that while we create Instagram stories, it always picks colors itself for a background behind our video/image. Some of my own stories and their beautiful backgrounds selected by Instagram AI led me to think how this is being done!
+- This idea initially came to my mind when I saw a beautiful aurora scenery and wanted to paint it but only wanted to buy minimum colors for the purpose. I thought, what if Clustering could quickly tell me which colors most occur in the painting based on the number of colors I want to buy (the number of clusters that get created).
+<img src="readme_resources/result3.png" width=300/>
+- Later that day, I noticed that while we create Instagram stories, it always picks colors itself for a background behind our video/image. Some of my own stories and their beautiful backgrounds selected by Instagram AI led me to think how this is being done!
 <p float="left">
 <img src="readme_resources/img1.png" width=200/>
 <img src="readme_resources/img2.png" width=200/>
 <img src="readme_resources/img3.png" width=200/>
 </p>
-- My guess is that they perform a quick clustering and sample a few top most colors from the palette thus created.
-- I tried to do the same for any given image url using Machine Learning clustering algorithms.
+- One way that this can be done is a quick clustering and sample a few top most colors from the palette thus created.
+- For both the above use cases, I perform clustering for any given image url using Machine Learning clustering algorithms.
 
 ## Clustering Algorithms:
 I used Heirarchical clustering, Kmeans, Kmeans++ and Birch algorithms and noticed they generate similar results. As such even a single algorithm does not produce similar clustering when run twice!
